@@ -1,0 +1,121 @@
+<h1>Mountains</h1>
+
+<div id="mountains"></div>
+<!--Attribut-->
+<button onclick="alert('.....');">DO NOT PRESS</button>
+<!--<button id="button2" onclick="buttonFunction(this, 'blue')" ;>DO NOT PRESS</button>-->
+<!--<div id="button">
+  Click me!
+</div>-->
+
+
+<div onmouseover="mouseOver()">
+  <button>click here</button>
+</div>
+
+<button type="button" 
+  onclick="document.getElementsByClassName('td').style.color = 'green'"
+>Click Me!</button>
+
+  <script>
+    const createTableCell = function (textValue) {
+      let element = document.createElement("td");
+      element.setAttribute("class", "td" )
+      element.appendChild(document.createTextNode(textValue));
+      return element;
+
+      //table th hier ?
+      // prüfen ob Parameter textValue oder key ist und dann das entsprechende ausführen
+    };
+
+    const MOUNTAINS = [
+      { name: "Kilimanjaro", height: 5895, place: "Tanzania" },
+      { name: "Everest", height: 8848, place: "Nepal" },
+      { name: "Mount Fuji", height: 3776, place: "Japan" },
+      { name: "Vaalserberg", height: 323, place: "Netherlands" },
+      { name: "Denali", height: 6168, place: "United States" },
+      { name: "Popocatepetl", height: 5465, place: "Mexico" },
+      { name: "Mont Blanc", height: 4808, place: "Italy/France" },
+    ];
+
+    const tableDiv = document.getElementById("mountains");
+    const table = document.createElement("table");
+    tableDiv.appendChild(table);
+
+    //const columnNames = ["Name", "Height", "Place"];
+    const header = document.createElement("tr");
+    table.appendChild(header); //tr an table
+    const nameHeightPlace = Object.keys(MOUNTAINS[0]); //nur keys von den Objekten
+
+    for (let key of nameHeightPlace) {
+      const headerRow = document.createElement("th"); //th tag erstellen
+      headerRow.setAttribute("class", "test" )
+      headerRow.appendChild(document.createTextNode(key)); //key an th wie in createTableCell
+      header.appendChild(headerRow); // th an tr ranhängen
+    }
+    //values
+    for (let i = 0; i < MOUNTAINS.length; i++) {
+      const row = document.createElement("tr");
+      table.appendChild(row);
+      const tempObj = MOUNTAINS[i];
+
+      row.appendChild(createTableCell(tempObj.name));
+      row.appendChild(createTableCell(tempObj.height));
+      row.appendChild(createTableCell(tempObj.place));
+    }
+
+    //let name = document.createElement(th);
+    // columns.appendChild(place);
+    //columns.appendChild(name);
+    //columns.appendChild(height);
+    //}
+
+    
+  
+    //styles
+    const tabelle = document.querySelector("table");
+    tabelle.style.width = "100%";
+    const ueberschrift = document.querySelector("th");
+    ueberschrift.style.borderBottom = "thick solid #0000FF";
+
+    //const inhalt = document.querySelector("td");
+    //for (let element of tr) {}
+    const inhalt = document.getElementsByTagName("tr");
+    //nur die childs
+    for (let i = 0; i < inhalt.length; i++) {
+      inhalt[i].style.textAlign = "center";
+    }
+
+    const oberschrift = document.querySelector("h1");
+    oberschrift.style.justifyContent = "center";
+    oberschrift.style.display = "flex";
+
+    let pTag = document.querySelector(p);
+    pTag.addEventListener("drag", () => {
+      console.log("......");
+    });
+    function buttonFunction(change, color) {
+      document.querySelector('button').change.style.color = color
+     // Farbe der Header ändern
+    }
+    
+    let button = document.querySelector('button');
+      button.addEventListener('click', funcColor);
+
+    function funcColor () {
+      document.querySelector('td').style.color = red;
+    }
+    
+    
+
+    function mouseOver() {//mit button th Elemente ändern
+      const items = document.getElementsByClassName("test")
+      for (let i of items){
+        i.style.color = "blue";
+      }
+}
+
+   
+
+  </script>
+</element>
